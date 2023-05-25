@@ -9,7 +9,7 @@ class persona{
     }
 
     saludar(){
-        return `hola ${this.nombre}`
+        return `Hola ${this.nombre}`
     }
 
     static esMayorDeEdad(edad){
@@ -135,4 +135,65 @@ document.querySelector('.cont1').addEventListener('submit', (e)=>{
     document.querySelector('#sonido').textContent = perro1.getSonido
     document.querySelector('#moverCola').textContent = perro1.moverCola()
     document.querySelector('.raza').textContent = perro1.geRaza
+})
+
+class figura{
+    constructor(color){
+        this.color = color
+        this.area = 0
+    }
+}
+
+class circulo extends figura{
+    constructor(color,radio){
+        super(color)
+        this.radio = radio
+        this.radio2 = Math.pow(this.radio,2)
+    }
+    calcularArea(){
+
+        this.area = 3.1416*this.radio2
+        return this.area
+    }
+}
+
+class rectangulo extends figura{
+    constructor(color,ancho,alto){
+        super(color)
+        this.ancho = ancho
+        this.alto = alto
+    }
+    calcularArea(){
+        this.area = this.ancho*this.alto
+        return this.area
+    }
+}
+
+let color = document.querySelector('#color')
+
+let radio = document.querySelector('#radio')
+
+document.querySelector('.cont2').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let radioN = parseFloat(radio.value)
+    let circulo1 = new circulo(color.value,radioN)
+    circulo1.calcularArea()
+    console.log(circulo1)
+    document.querySelector('#resultado').textContent = circulo1.calcularArea()
+})
+
+let colorC = document.querySelector('#colorC')
+
+let alto = document.querySelector('#alto')
+
+let ancho = document.querySelector('#ancho')
+
+document.querySelector('.cont3').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let altoA = parseFloat(alto.value)
+    let anchoA = parseFloat(ancho.value)
+    let rectangulo1 = new rectangulo(colorC.value,altoA,anchoA)
+    rectangulo1.calcularArea()
+    console.log(rectangulo1)
+    document.querySelector('#resultadoC').textContent = rectangulo1.calcularArea()
 })
