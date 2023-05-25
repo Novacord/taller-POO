@@ -24,9 +24,10 @@ class perro extends animal {
     }
 
     moverCola(){
-        return `    el perro está moviendo la cola`
+        return `el perro está moviendo la cola`
     }
 }
+
 
 let perro1 = new perro('toby','4','guau')
 

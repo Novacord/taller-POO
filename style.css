@@ -6,11 +6,11 @@
   --user-button-shadow:rgba(0,0,0,0.1);
 }
 
-.cont {
+.cont,.cont1 {
     display: flex;
 }
 
-.cont .input1 {
+.cont .input1,.cont1 .input1{
     position: absolute;
     left: 0px;
     right: 0px;
@@ -24,7 +24,7 @@
     outline: none;
 }
 
-.cont .input2 {
+.cont .input2,.cont1 .input2{
     position: absolute;
     top: 40px;
     left: 0px;
@@ -39,7 +39,7 @@
     outline: none;
 }
 
-.cont .input3 {
+.cont .input3,.cont1 .input3 {
     position: absolute;
     top: 80px;
     left: 0px;
@@ -54,7 +54,7 @@
     outline: none
 }
 
-.cont .input4 {
+.cont .input4,.cont1 .input4 {
     position: absolute;
     top: 120px;
     left: 0px;
@@ -69,7 +69,7 @@
     outline: none
 }
 
-.cont .input5 {
+.cont .input5,.cont1 .input5 {
     position: absolute;
     top: 160px;
     left: 0px;
@@ -84,7 +84,7 @@
     outline: none
 }
 
-.cont .info {
+.cont .info,.cont1 .info {
     display: flex;
     position: absolute;
     top: 190px;
@@ -96,12 +96,12 @@
     transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
 }
 
-.cont .info p{
+.cont .info p,.cont1 .info p{
     margin-top: 33px;
     margin-left: 1rem;
 }
 
-.cont .m {
+.cont .m,.cont1 .m{
     display: flex;
     position: absolute;
     top: 280px;
@@ -114,6 +114,20 @@
     color: rgb(53, 7, 7);
 }
 
+.cont1 .input6 {
+    position: absolute;
+    top: 120px;
+    left: 0px;
+    right: 0px;
+    width: 80%;
+    margin: 10px auto;
+    height: 30px;
+    transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    outline: none
+}
 
 
 body #user-button {
