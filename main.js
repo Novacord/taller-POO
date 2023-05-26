@@ -197,3 +197,66 @@ document.querySelector('.cont3').addEventListener('submit',(e)=>{
     console.log(rectangulo1)
     document.querySelector('#resultadoC').textContent = rectangulo1.calcularArea()
 })
+
+class vehiculo{
+    constructor(marca,modelo,velocidad){
+        this.marca = marca
+        this.modelo = modelo
+        this.velocidad = velocidad
+        this.kilometos = 0
+        this.millas = 0
+    }
+
+    get getVelocidad(){
+        return this.velocidad
+    }
+
+    acelerar(){
+        this.velocidad = this.velocidad+10
+        return this.velocidad
+    }
+
+    static convertirKmHEnMph(velocidad){
+        this.millas = velocidad*0.62
+        return `${this.millas} millas `
+    }
+    
+
+}
+class coche extends vehiculo{
+    constructor(marca,modelo,velocidad,combustible){
+        super(marca,modelo,velocidad)
+        this.combustible = combustible
+    }
+
+    acelerar(){
+        this.velocidad = this.velocidad+20 
+        return `${this.velocidad} K/H //`    
+    }
+}
+
+let marca = document.querySelector('#marca')
+
+let modelo = document.querySelector('#modelo')
+
+let velocidad = document.querySelector('#velocidad')
+
+let combustible = document.querySelector('#combustible')
+
+let suma = 0
+
+document.querySelector('.cont4').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let velocidadA = parseFloat(velocidad.value) 
+    let coche1 = new coche(marca.value,modelo.value,velocidadA,combustible.value)
+    console.log(coche1.getVelocidad)
+    suma += coche1.getVelocidad
+    document.querySelector('#resultadoCc').textContent = coche1.acelerar()
+    document.querySelector('#resultadoCa').textContent = coche.convertirKmHEnMph(coche1.getVelocidad)
+    document.querySelector('#raceelerar').addEventListener('click', ()=>{
+        suma += 20
+        document.querySelector('#resultadoCc').textContent = `${suma} K/H //`
+        document.querySelector('#resultadoCa').textContent = coche.convertirKmHEnMph(suma)
+    })
+})
+
