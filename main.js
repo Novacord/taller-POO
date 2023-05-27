@@ -260,3 +260,60 @@ document.querySelector('.cont4').addEventListener('submit',(e)=>{
     })
 })
 
+class empleado {
+    static contador = 0
+  
+    constructor(nombre, edad, sueldo) {
+      this.id = ++empleado.contador
+      this.nombre = nombre
+      this.edad = edad
+      this.sueldo = sueldo
+      this.salario = 0
+    }
+  
+    calcularSalarioAnual() {
+      this.salario = this.sueldo * 12
+      return this.salario
+    }
+  }
+
+let nombreE = document.querySelector('#nombreE')
+
+let edadE = document.querySelector('#edadE')
+
+let sueldo = document.querySelector('#sueldo')
+
+document.querySelector('#form1').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let sueldoN = parseFloat(sueldo.value)
+    let empleado1 = new empleado(nombreE.value,edadE.value,sueldoN)
+    document.querySelector('#resultadoS').textContent =  `Saldo Anual: ${empleado1.calcularSalarioAnual()}`
+    document.querySelector('#resultadoId').textContent = `ID: ${empleado1.id}`
+})
+
+
+
+class gerente extends empleado {
+    constructor(nombre,edad,sueldo){
+        super(nombre,edad,sueldo)
+    }
+    calcularSalarioAnual(){
+        this.salario = (this.sueldo*0.1+this.sueldo)*12
+        return this.salario    
+    }
+}
+
+let nombreG = document.querySelector('#nombreG')
+
+let edadG = document.querySelector('#edadG')
+
+let sueldoG = document.querySelector('#sueldoG')
+
+document.querySelector('#form2').addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let sueldoN = parseFloat(sueldoG.value)
+    let gerente1 = new gerente(nombreG.value,edadG.value,sueldoN)
+    gerente1.calcularSalarioAnual()
+    console.log(gerente1)
+    document.querySelector('#resultadoG').textContent =  `Saldo Anual: ${gerente1.calcularSalarioAnual()}`
+})
